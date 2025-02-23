@@ -1,0 +1,19 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-family: neue-haas-grotesk-display;
+    font-display: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-stretch: normal;
+    font-size: 16px;
+    color: black;
+    background-color: transparent;
+    cursor: auto;
+}
