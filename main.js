@@ -16,21 +16,23 @@ const scroller = scrollama();
 // Setup scroller with options
 scroller
     .setup({
-        step: '.step',
-        offset: 0.5,
-        debug: false,
+        step: '.step', // the class of the elements to track
+        offset: 0.5, // how far into the viewport to trigger (0.5 means halfway down)
+        debug: false, // set to true for debugging messages
     })
     .onStepEnter(({ element, index }) => {
-        element.classList.add('is-active');
-        dynamicImage.src = images[index]; // Change image based on step
+        // Actions when entering a step
+        element.classList.add('is-active'); // Add an active class for styling
+        // You can add other actions here, like updating a sidebar or changing content
     })
     .onStepExit(({ element, index }) => {
-        element.classList.remove('is-active');
+        // Actions when exiting a step
+        element.classList.remove('is-active'); // Remove active class
     });
 
 // Optional: handle window resize events
 window.addEventListener('resize', () => {
-    scroller.resize();
+    scroller.resize(); // Call resize method to recalculate dimensions
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -73,3 +75,58 @@ document.addEventListener("DOMContentLoaded", function () {
         tableBody.appendChild(row);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const steps = document.querySelectorAll(".step");
+    const imageTrack = document.querySelector(".image-track");
+
+    function updateCircleVisibility(stepIndex) {
+        if (stepIndex === 1) {
+            imageTrack.classList.add("show-circle");
+            imageTrack.classList.remove("hide-circle");
+        } else if (stepIndex === 3) {
+            imageTrack.classList.add("hide-circle");
+            imageTrack.classList.remove("show-circle");
+        }
+    }
+
+    function handleScroll() {
+        let currentStepIndex = 0;
+
+        steps.forEach((step, index) => {
+            const rect = step.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
+                currentStepIndex = parseInt(step.getAttribute("data-step"));
+            }
+        });
+
+        updateCircleVisibility(currentStepIndex);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+});
+
+
+
+
+
+
+
+
+const polaroidContainers = document.querySelectorAll('.polaroid-container');
+
+    polaroidContainers.forEach(container => {
+        container.addEventListener('mouseenter', () => {
+            const randomDegree = Math.random() < 0.5
+                ? Math.floor(Math.random() * 6) - 10 // Random value between -10 and -5
+                : Math.floor(Math.random() * 6) + 5; // Random value between 5 and 10
+
+            container.style.transform = `rotate(${randomDegree}deg)`;
+            container.style.zIndex = '9'; // Set z-index on hover
+        });
+
+        container.addEventListener('mouseleave', () => {
+            container.style.transform = 'rotate(0deg)'; // Reset rotation on mouse leave
+            container.style.zIndex = ''; // Reset z-index on mouse leave
+        });
+    });

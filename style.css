@@ -7,14 +7,14 @@ html {
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    font-family: neue-haas-grotesk-display;
+    font-family: georgia;
     font-display: auto;
     font-style: normal;
     font-weight: 500;
     font-stretch: normal;
     font-size: 16px;
     color: black;
-    background-color: transparent;
+    background-color: beige;
     cursor: auto;
 }
 
@@ -25,14 +25,15 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     overflow: hidden;
-    background-color: skyblue;
+    text-align: center;
 }
 
 .title {
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(3rem, 8vw, 4rem);
     font-weight: bold;
-    position: absolute;
+    position: relative;
     z-index: 2;
     text-align: center;
 }
@@ -46,95 +47,168 @@ html {
     transition: all 0.3s ease-in-out;
 }
 
-/* Positioning Rectangles */
-.rect1 { top: 40%; left: 5%; transform: rotate(-15deg); }
-.rect2 { top: 20%; left: 20%; transform: rotate(-10deg); }
-.rect3 { top: 20%; right: 20%; transform: rotate(10deg); }
-.rect4 { top: 40%; right: 5%; transform: rotate(15deg); }
+.rect1 {
+    top: 40%;
+    left: 5%;
+    transform: rotate(-15deg);
+}
 
-/* Responsive Adjustments */
+.rect2 {
+    top: 20%;
+    left: 20%;
+    transform: rotate(-10deg);
+}
+
+.rect3 {
+    top: 20%;
+    right: 20%;
+    transform: rotate(10deg);
+}
+
+.rect4 {
+    top: 40%;
+    right: 5%;
+    transform: rotate(15deg);
+}
+
 @media (max-width: 768px) {
     .rectangle {
-        height: 25vh; /* Make them smaller on tablets */
+        height: 25vh;
+    }
+
+    .two-track-polaroid {
+        flex-direction: column; /* Stack items in a column */
+        align-items: center; /* Center align items */
+    }
+
+    .image-polaroid {
+        width: 100%; /* Make each item take full width */
+        align-items: center; /* Center text in the text track */
     }
 }
 
 @media (max-width: 480px) {
     .rectangle {
-        height: 20vh; /* Even smaller for mobile screens */
+        height: 20vh;
     }
 }
 
 .content {
     width: 100vw;
-    max-width: 1080px; /* Limit width for better readability */
-    margin: 0 auto; /* Center the content */
+    max-width: 1080px;
+    margin: 0 auto;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
 }
 
 .subheader {
-    font-size: 2.5rem; /* Adjust font size */
-    margin-bottom: 40%; /* Space below subheader */
-    border-bottom: 2px solid #ccc; /* Underline for subheader */
+    font-size: 2rem;
+    border-bottom: 2px solid darkgoldenrod;
     position: sticky;
-    top: 0; /* Distance from the top of the viewport */
-    z-index: 10; /* Ensure it stays on top of other content */
-    padding: 10px; /* Optional padding for aesthetics */
-    background-color: orange;
+    top: 0;
+    z-index: 10;
+    padding: 10px;
+    background-color: beige;
+    width: 100vw;
+    padding-left: 60px;
 }
 
 .step {
-    opacity: 0; /* Initially hidden */ /* Move down by 50% of the element's height */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
-    margin-bottom: 80%; /* Increase space between steps */
+    opacity: 0.5;
+    /* Default state */
+    transition: opacity 0.3s ease;
+    /* Smooth transition */
+    margin-bottom: 20%;
+}
+
+.step.is-active {
+    opacity: 1;
+    /* Active state */
+}
+
+.step p {
+    font-size: 1.25rem;
 }
 
 .step:last-child {
-    margin-bottom: 0; /* No margin for the last step */
+    margin-bottom: 0;
+    /* No margin for the last step */
 }
 
-.is-active {
-    opacity: 1; /* Make visible */
-    transform: translateY(0); /* Return to original position */
-}
 
-.two-track {
+.two-track,
+.two-track-polaroid {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-start;
     position: relative;
     width: 100%;
-    max-width: 1080px; /* Adjust the max-width as needed */
-    background-color: orangered;
+    max-width: 1080px;
 }
 
 .text-track {
     flex: 1;
-    padding: 60px; /* Add padding for spacing */
-    max-width: 400px;
-    background-color: pink;
+    width: 50%;
+    padding: 20px;
 }
 
 .image-track {
     position: sticky;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40%;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     overflow: hidden;
 }
 
-.image-track img {
-    max-width: 100%; /* Responsive image */
-    height: auto; /* Maintain aspect ratio */
+.image-polaroid {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.image-track canvas {
+.image-track img {
     max-width: 100%;
-    max-height: 100%;
+    /* Responsive image */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+
+.polaroid-container {
+    width: 210px;
+    height: 252px;
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    transition: transform 0.3s;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.polaroid-container p {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.image {
+    width: 186px; /* Full width of the container but maintain aspect ratio */
+    height: 186px; /* Prevent overflow in height */
+    object-fit: contain;
+
+}
+
+.extra-space {
+    height: 150px;
 }
