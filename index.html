@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.typekit.net/bpd3fkb.css">
     <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js" defer></script>
 </head>
 
@@ -19,44 +20,251 @@
             <div class="rectangle rect3"></div>
             <div class="rectangle rect4"></div>
         </div>
-        <h1 class="title">Pottery in SF</h1>
+        <h1 class="title">Young Tech Professionals<br>and Pottery</h1>
     </section>
 
-    <section>
-        <figure>
-            <img src="image.jpg" alt="Description of image 1">
-            <p>A sticky item</p>
-        </figure>
-        <article>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum tellus felis, at lobortis orci sollicitudin ac. Donec lobortis sapien ac posuere faucibus. Mauris lectus neque, pretium non volutpat eget, vestibulum at magna. In sollicitudin augue nunc, non bibendum augue ornare quis.</p>
-            <p>Integer accumsan interdum justo eu pretium. Aliquam maximus mi sit amet dapibus efficitur.</p>
-            <p>Sed condimentum lacus sit amet turpis aliquam varius nec a lacus. In facilisis convallis ante sit amet consequat. Aenean a lorem mollis, bibendum nibh nec, maximus orci. Nulla facilisi.</p>
-        </article>
+
+    <section class="content">
+        <h2 class="subheader">Introduction / Third Spaces</h2>
+
+        <div class="two-track">
+            <div class="text-track">
+                <div class="step" data-step="1">
+                    <p>When Michela Ferrari moved to San Francisco, she didn't expect pottery to become such a big part
+                        of her life. As a 27-year-old product designer at Comun, a financial technology company, she
+                        spends most of her days in front of a screen. But in 2021, nearing the end of the COVID-19
+                        pandemic, she decided to try something new. “I kind of wanted something to do other than working
+                        from home,” she said. Her boyfriend at the time—now husband—encouraged her to give pottery a
+                        try.</p>
+                </div>
+
+                <div class="step" data-step="2">
+                    <p>“You’d really enjoy it,” he told her, drawing from his own experience with pottery in art school.
+                        “He was like, you should try it out.”</p>
+                </div>
+
+                <div class="step" data-step="3">
+                    <p>For Ferrari, pottery became more than just a hobby; it became a third space. “Especially when I
+                        was living close to my studio, it was so easy to go there and spend time... it gave me a sense
+                        of ownership, like I belong here,” she said.</p>
+                </div>
+
+                <div class="step" data-step="4">
+                    <p>Third spaces are spaces outside of home and work where people gather and establish community.
+                        They are particularly relevant for young tech workers in San Francisco, many of whom work
+                        remotely and don’t have established communities.</p>
+                </div>
+
+                <div class="step" data-step="5">
+                    <p>Tommy Li, a 26-year-old product designer at Atlassian, a collaboration-focused software company,
+                        shares Ferrari’s sentiment. “Pottery feels like a third space for me,” he said. Like Ferrari, Li
+                        spends most of his day in front of a screen—be it at the office or at home—and pottery offers a
+                        break from the digital world.</p>
+                </div>
+            </div>
+
+            <div class="image-track">
+                <img id="dynamic-image">
+            </div>
+        </div>
     </section>
 
-    <section>
-        <figure>
-            <img src="image.jpg" alt="Description of image 2">
-            <p>A second sticky item</p>
-        </figure>
-        <article>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum tellus felis, at lobortis orci sollicitudin ac. Donec lobortis sapien ac posuere faucibus. Mauris lectus neque, pretium non volutpat eget, vestibulum at magna. In sollicitudin augue nunc, non bibendum augue ornare quis.</p>
-            <p>Integer accumsan interdum justo eu pretium. Aliquam maximus mi sit amet dapibus efficitur.</p>
-            <p>Sed condimentum lacus sit amet turpis aliquam varius nec a lacus. In facilisis convallis ante sit amet consequat. Aenean a lorem mollis, bibendum nibh nec, maximus orci. Nulla facilisi.</p>
-        </article>
+
+    <section class="content">
+        <h2 class="subheader">Social Spaces</h2>
+        <div class="text-track">
+            <div class="step" data-step="1">
+                <p>Meg Frazier, a program manager at Adobe in her late 20s, agreed with Li’s sentiment. “Pottery gets me
+                    out of the house,” she said. “After college, I wasn’t hanging out in communal spaces with friends as
+                    often as I used to, and after COVID, the motivation for me to go out was even less.”
+                </p>
+            </div>
+
+            <div class="step" data-step="2">
+                <p>Though Frazier works in-person twice a week, a majority of her work is done online, like Li’s.
+                    Hitting the bar with colleagues after work isn’t uncommon, but Frazier pointed out that pottery is a
+                    nice space to have as someone who doesn’t necessarily enjoy drinking all the time. She also likes
+                    having a space separate from her friend group and work life where she can meet people.</p>
+            </div>
+
+            <div class="step" data-step="3">
+                <p>For some, pottery is a social activity, while for others, it’s a quiet retreat. Frazier has noticed a
+                    mix of both. “Some people come in with headphones and others want to make friends.” Michela, who has
+                    been taking classes for years, has built relationships with classmates and studio owners. She
+                    initially started going with friends, but over time, they stopped coming while she kept going. “But
+                    it was nice because you would make friends in your classes,” she said. “(Even though) I wouldn't
+                    consider them necessarily like my friends, it's people you know, they’ll ask you what you’re working
+                    on.” She also enjoys the variety of ages that appear in pottery studios. “There's a lot of older
+                    people that are retired … And it's nice to have an older person to talk to, and sometimes they'll
+                    bring in their dogs,” Ferrari mentioned. </p>
+            </div>
+
+            <div class="step" data-step="4">
+                <p>Some people bring friends with them, whether to share the experience or collaborate. Li once invited
+                    a friend who wasn’t a studio member to help him finish abandoned pieces. “I had a bunch of stuff I
+                    hadn't glazed, and I just had her paint on a piece I made and had no plans to finish. It's cool to
+                    have a collaboration opportunity and to be able to use that space to interact with people I know,”
+                    Li said.</p>
+            </div>
+        </div>
     </section>
 
-    <section>
-        <figure>
-            <img src="image.jpg" alt="Description of image 3">
-            <p>A third sticky item</p>
-        </figure>
-        <article>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum tellus felis, at lobortis orci sollicitudin ac. Donec lobortis sapien ac posuere faucibus. Mauris lectus neque, pretium non volutpat eget, vestibulum at magna. In sollicitudin augue nunc, non bibendum augue ornare quis.</p>
-            <p>Integer accumsan interdum justo eu pretium. Aliquam maximus mi sit amet dapibus efficitur.</p>
-            <p>Sed condimentum lacus sit amet turpis aliquam varius nec a lacus. In facilisis convallis ante sit amet consequat. Aenean a lorem mollis, bibendum nibh nec, maximus orci. Nulla facilisi.</p>
-        </article>
+
+    <section class="content">
+        <h2 class="subheader">Tactile Therapy</h2>
+        <div class="step" data-step="1">
+            <p>When Michela Ferrari moved to San Francisco, she didn't expect pottery to become such a big part of her
+                life. As a 27-year-old product designer at Comun, a financial technology company, she spends most of her
+                days in front of a screen. But in 2021, nearing the end of the COVID-19 pandemic, she decided to try
+                something new. “I kind of wanted something to do other than working from home,” she said. Her boyfriend
+                at the time—now husband—encouraged her to give pottery a try.</p>
+        </div>
+
+        <div class="step" data-step="2">
+            <p>“You’d really enjoy it,” he told her, drawing from his own experience with pottery in art school. “He was
+                like, you should try it out.”</p>
+        </div>
+
+        <div class="step" data-step="3">
+            <p>For Ferrari, pottery became more than just a hobby; it became a third space. “Especially when I was
+                living close to my studio, it was so easy to go there and spend time... it gave me a sense of ownership,
+                like I belong here,” she said.</p>
+        </div>
+
+        <div class="step" data-step="4">
+            <p>Third spaces are spaces outside of home and work where people gather and establish community. They are
+                particularly relevant for young tech workers in San Francisco, many of whom work remotely and don’t have
+                established communities.</p>
+        </div>
+
+        <div class="step" data-step="5">
+            <p>Tommy Li, a 26-year-old product designer at Atlassian, a collaboration-focused software company, shares
+                Ferrari’s sentiment. “Pottery feels like a third space for me,” he said. Like Ferrari, Li spends most of
+                his day in front of a screen—be it at the office or at home—and pottery offers a break from the digital
+                world.</p>
+        </div>
     </section>
+
+
+    <section class="content">
+        <h2 class="subheader">Cost of Pottery</h2>
+        <div class="two-track">
+            <div class="text-track">
+                <div class="step" data-step="1">
+                    <p>While pottery offers a creative and social aspect, it can be costly. Li initially hesitated to
+                        sign
+                        up because of the price. “It’s not a cheap hobby,” he said. “But eventually I signed up, and
+                        once I
+                        started, I really enjoyed it. I’ve been doing pottery for about eight months now.”
+                    </p>
+                </div>
+                <div class="step" data-step="2">
+                    <p>
+                        He also acknowledges the exclusivity that comes with the expense. “The thing about it is that
+                        it’s
+                        an expensive hobby. People who can afford to have that kind of space—it feels kind of bad, you
+                        know?”
+                    </p>
+                </div>
+                <div class="step" data-step="3">
+                    <p> Ferrari also acknowledged that pottery is expensive, but has found workarounds to make it fit in
+                        her
+                        budget. “Typically for the three hour class, it’s $200. So I never tried that, because the six
+                        week
+                        class is $350 and I was like, I’m just going to fully commit and do the expensive one,” she
+                        said. “I
+                        just try to do it when I know I’m going to have dedicated time and be physically present.”
+                    </p>
+                </div>
+            </div>
+            <div class="image-track">
+                <table id="potteryCostTable">
+                    <thead>
+                        <tr>
+                            <th>Class Type</th>
+                            <th>Cost (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JavaScript will populate this -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content">
+        <h2 class="subheader">Pottery vs. Other Hobbies</h2>
+        <div class="step" data-step="1">
+            <p>When Michela Ferrari moved to San Francisco, she didn't expect pottery to become such a big part of her
+                life. As a 27-year-old product designer at Comun, a financial technology company, she spends most of her
+                days in front of a screen. But in 2021, nearing the end of the COVID-19 pandemic, she decided to try
+                something new. “I kind of wanted something to do other than working from home,” she said. Her boyfriend
+                at the time—now husband—encouraged her to give pottery a try.</p>
+        </div>
+
+        <div class="step" data-step="2">
+            <p>“You’d really enjoy it,” he told her, drawing from his own experience with pottery in art school. “He was
+                like, you should try it out.”</p>
+        </div>
+
+        <div class="step" data-step="3">
+            <p>For Ferrari, pottery became more than just a hobby; it became a third space. “Especially when I was
+                living close to my studio, it was so easy to go there and spend time... it gave me a sense of ownership,
+                like I belong here,” she said.</p>
+        </div>
+
+        <div class="step" data-step="4">
+            <p>Third spaces are spaces outside of home and work where people gather and establish community. They are
+                particularly relevant for young tech workers in San Francisco, many of whom work remotely and don’t have
+                established communities.</p>
+        </div>
+
+        <div class="step" data-step="5">
+            <p>Tommy Li, a 26-year-old product designer at Atlassian, a collaboration-focused software company, shares
+                Ferrari’s sentiment. “Pottery feels like a third space for me,” he said. Like Ferrari, Li spends most of
+                his day in front of a screen—be it at the office or at home—and pottery offers a break from the digital
+                world.</p>
+        </div>
+    </section>
+
+
+    <section class="content">
+        <h2 class="subheader">Favorite Creations/Satisfaction</h2>
+        <div class="step" data-step="1">
+            <p>When Michela Ferrari moved to San Francisco, she didn't expect pottery to become such a big part of her
+                life. As a 27-year-old product designer at Comun, a financial technology company, she spends most of her
+                days in front of a screen. But in 2021, nearing the end of the COVID-19 pandemic, she decided to try
+                something new. “I kind of wanted something to do other than working from home,” she said. Her boyfriend
+                at the time—now husband—encouraged her to give pottery a try.</p>
+        </div>
+
+        <div class="step" data-step="2">
+            <p>“You’d really enjoy it,” he told her, drawing from his own experience with pottery in art school. “He was
+                like, you should try it out.”</p>
+        </div>
+
+        <div class="step" data-step="3">
+            <p>For Ferrari, pottery became more than just a hobby; it became a third space. “Especially when I was
+                living close to my studio, it was so easy to go there and spend time... it gave me a sense of ownership,
+                like I belong here,” she said.</p>
+        </div>
+
+        <div class="step" data-step="4">
+            <p>Third spaces are spaces outside of home and work where people gather and establish community. They are
+                particularly relevant for young tech workers in San Francisco, many of whom work remotely and don’t have
+                established communities.</p>
+        </div>
+
+        <div class="step" data-step="5">
+            <p>Tommy Li, a 26-year-old product designer at Atlassian, a collaboration-focused software company, shares
+                Ferrari’s sentiment. “Pottery feels like a third space for me,” he said. Like Ferrari, Li spends most of
+                his day in front of a screen—be it at the office or at home—and pottery offers a break from the digital
+                world.</p>
+        </div>
+    </section>
+
 </body>
 
 </html>

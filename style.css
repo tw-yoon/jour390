@@ -1,15 +1,23 @@
-/* Reset */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-family: neue-haas-grotesk-display;
+    font-display: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-stretch: normal;
+    font-size: 16px;
     color: black;
-    background-color: white;
+    background-color: transparent;
+    cursor: auto;
 }
 
-/* Fullscreen Landing Page */
 .landing-page {
     position: relative;
     width: 100vw;
@@ -21,23 +29,21 @@ body, html {
     background-color: skyblue;
 }
 
-/* Title */
 .title {
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem);
     font-weight: bold;
     position: absolute;
     z-index: 2;
     text-align: center;
-    transition: transform 0.5s ease-in-out; /* Smooth slide up */
 }
 
-/* Rectangles */
 .rectangle {
     position: absolute;
     height: clamp(20%, 33vh, 33%);
     aspect-ratio: 3 / 4;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Positioning Rectangles */
@@ -46,44 +52,89 @@ body, html {
 .rect3 { top: 20%; right: 20%; transform: rotate(10deg); }
 .rect4 { top: 40%; right: 5%; transform: rotate(15deg); }
 
-section {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5rem;
-
-    @media (min-width: 768px) {
-        flex-direction: row;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .rectangle {
+        height: 25vh; /* Make them smaller on tablets */
     }
 }
 
-figure {
+@media (max-width: 480px) {
+    .rectangle {
+        height: 20vh; /* Even smaller for mobile screens */
+    }
+}
+
+.content {
+    width: 100vw;
+    max-width: 1080px; /* Limit width for better readability */
+    margin: 0 auto; /* Center the content */
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: aqua;
+}
+
+.subheader {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 40%; /* Space below subheader */
+    border-bottom: 2px solid #ccc; /* Underline for subheader */
+    position: sticky;
+    top: 0; /* Distance from the top of the viewport */
+    z-index: 10; /* Ensure it stays on top of other content */
+    padding: 10px; /* Optional padding for aesthetics */
+    background-color: orange;
+}
+
+.step {
+    opacity: 0; /* Initially hidden */ /* Move down by 50% of the element's height */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    margin-bottom: 80%; /* Increase space between steps */
+}
+
+.step:last-child {
+    margin-bottom: 0; /* No margin for the last step */
+}
+
+.is-active {
+    opacity: 1; /* Make visible */
+    transform: translateY(0); /* Return to original position */
+}
+
+.two-track {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    position: relative;
+    width: 100%;
+    max-width: 1080px; /* Adjust the max-width as needed */
+    background-color: orangered;
+}
+
+.text-track {
+    flex: 1;
+    padding: 60px; /* Add padding for spacing */
+    max-width: 400px;
+    background-color: pink;
+}
+
+.image-track {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    flex: 1;
+    display: flex;
     justify-content: center;
-    margin: 0;
-    width: 31%;
-    background-color: #DAF7A6;
-    position: sticky; /* Make it sticky */
-    top: 3rem; /* Space from top when sticky */
+    align-items: center;
+    overflow: hidden;
 }
 
-figure img {
+.image-track img {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.image-track canvas {
     max-width: 100%;
-    height: auto; /* Make images responsive */
-}
-
-article {
-    padding: 0 1rem;
-    flex: 1; /* Allow it to grow and fill available space */
-}
-
-article p {
-    font-family: Georgia, serif;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    
-    &:not(:last-of-type) {
-        margin-bottom: 1.5rem; /* Space between paragraphs */
-    }
+    max-height: 100%;
 }
