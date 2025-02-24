@@ -1,19 +1,89 @@
-body,
-html {
+/* Reset */
+body, html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    font-family: neue-haas-grotesk-display;
-    font-display: auto;
-    font-style: normal;
-    font-weight: 500;
-    font-stretch: normal;
-    font-size: 16px;
+    font-family: "neue-haas-grotesk-display", sans-serif;
     color: black;
-    background-color: transparent;
-    cursor: auto;
+    background-color: white;
+}
+
+/* Fullscreen Landing Page */
+.landing-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: skyblue;
+}
+
+/* Title */
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    transition: transform 0.5s ease-in-out; /* Smooth slide up */
+}
+
+/* Rectangles */
+.rectangle {
+    position: absolute;
+    height: clamp(20%, 33vh, 33%);
+    aspect-ratio: 3 / 4;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Positioning Rectangles */
+.rect1 { top: 40%; left: 5%; transform: rotate(-15deg); }
+.rect2 { top: 20%; left: 20%; transform: rotate(-10deg); }
+.rect3 { top: 20%; right: 20%; transform: rotate(10deg); }
+.rect4 { top: 40%; right: 5%; transform: rotate(15deg); }
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 31%;
+    background-color: #DAF7A6;
+    position: sticky; /* Make it sticky */
+    top: 3rem; /* Space from top when sticky */
+}
+
+figure img {
+    max-width: 100%;
+    height: auto; /* Make images responsive */
+}
+
+article {
+    padding: 0 1rem;
+    flex: 1; /* Allow it to grow and fill available space */
+}
+
+article p {
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    
+    &:not(:last-of-type) {
+        margin-bottom: 1.5rem; /* Space between paragraphs */
+    }
 }
