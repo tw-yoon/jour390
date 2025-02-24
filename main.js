@@ -35,7 +35,7 @@ window.addEventListener('resize', () => {
     scroller.resize(); // Call resize method to recalculate dimensions
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const steps = document.querySelectorAll('.step');
     const options = {
         root: null, // Use the viewport as the root
@@ -115,18 +115,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const polaroidContainers = document.querySelectorAll('.polaroid-container');
 
-    polaroidContainers.forEach(container => {
-        container.addEventListener('mouseenter', () => {
-            const randomDegree = Math.random() < 0.5
-                ? Math.floor(Math.random() * 6) - 10 // Random value between -10 and -5
-                : Math.floor(Math.random() * 6) + 5; // Random value between 5 and 10
+polaroidContainers.forEach(container => {
+    container.addEventListener('mouseenter', () => {
+        const randomDegree = Math.random() < 0.5
+            ? Math.floor(Math.random() * 6) - 10 // Random value between -10 and -5
+            : Math.floor(Math.random() * 6) + 5; // Random value between 5 and 10
 
-            container.style.transform = `rotate(${randomDegree}deg)`;
-            container.style.zIndex = '9'; // Set z-index on hover
-        });
-
-        container.addEventListener('mouseleave', () => {
-            container.style.transform = 'rotate(0deg)'; // Reset rotation on mouse leave
-            container.style.zIndex = ''; // Reset z-index on mouse leave
-        });
+        container.style.transform = `rotate(${randomDegree}deg)`;
+        container.style.zIndex = '9'; // Set z-index on hover
     });
+
+    container.addEventListener('mouseleave', () => {
+        container.style.transform = 'rotate(0deg)'; // Reset rotation on mouse leave
+        container.style.zIndex = ''; // Reset z-index on mouse leave
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const circles = document.querySelectorAll('.circle');
+    let circleIndex = 0;
+
+    function showCircle() {
+        if (circleIndex < circles.length) {
+            circles[circleIndex].classList.add('visible'); // Add class to make it visible
+            circleIndex++;
+            setTimeout(showCircle, 500); // Delay for the next circle
+        }
+    }
+
+    // Start showing circles when the section is in view
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            showCircle(); // Start showing circles when the section comes into view
+            observer.disconnect(); // Stop observing after circles start appearing
+        }
+    });
+
+    observer.observe(document.querySelector('.content')); // Observe the content section
+});
+
+document.addEventListener("scroll", function () {
+    const container = document.querySelector(".image-gradation");
+    const topImage = document.querySelector(".top-image");
+    const bottomImage = document.querySelector(".bottom-image");
+
+    const containerTop = container.offsetTop;
+    const containerHeight = container.offsetHeight;
+    const scrollPosition = window.scrollY;
+
+    // Normalize scroll progress within this container only
+    let scrollPercent = (scrollPosition - containerTop) / containerHeight;
+    scrollPercent = Math.max(0, Math.min(1, scrollPercent)); // Clamp between 0 and 1
+
+    topImage.style.opacity = 1 - scrollPercent;
+    bottomImage.style.opacity = scrollPercent;
+});

@@ -129,7 +129,7 @@ html {
 }
 
 .step p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
 .step:last-child {
@@ -139,7 +139,8 @@ html {
 
 
 .two-track,
-.two-track-polaroid {
+.two-track-polaroid,
+.two-track-hobby {
     display: flex;
     align-items: flex-start;
     position: relative;
@@ -211,4 +212,96 @@ html {
 
 .extra-space {
     height: 150px;
+}
+
+.plate-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center circles horizontally */
+    align-items: center; /* Center circles vertically */
+    width: 100vw;
+    max-width: 1080px;
+    position: relative;/* Position relative for absolute children */
+}
+
+.image-overlay {
+    position: relative; /* For positioning text on top of the image */
+    width: 500px; /* Set the width for the images */
+    height: 500px; /* Set the height for the images */
+}
+
+.overlay-image {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Optional: Add rounded corners */
+}
+
+.overlay-text {
+    position: absolute; /* Position the text over the image */
+    top: 50%; /* Center text vertically */
+    left: 50%; /* Center text horizontally */
+    transform: translate(-50%, -50%); /* Adjust to truly center the text */
+    color: white; /* Text color */
+    font-size: 1.1rem; /* Adjust font size as needed */
+    text-align: center; /* Center the text */
+}
+
+.plate1 {
+    left: -15%;
+    transform: rotate(10deg);
+}
+
+.plate2 {
+    left: 20%;
+    transform: rotate(-10deg);
+}
+
+.plate3 {
+    left: -10%;
+    transform: rotate(10deg);
+}
+
+.image-gradation {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    height: 500px; /* Define height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents unwanted overflow */
+}
+
+.image-gradation img {
+    position: absolute; /* Ensures images overlap */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+
+@keyframes fadeOscillate {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOscillateReverse {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.top-image {
+    animation: fadeOscillate 10s infinite ease-in-out, rotate 60s linear infinite;
+}
+
+.bottom-image {
+    animation: fadeOscillateReverse 10s infinite ease-in-out, rotate 60s linear infinite;
 }
