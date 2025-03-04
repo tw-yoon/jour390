@@ -35,6 +35,35 @@ window.addEventListener('resize', () => {
     scroller.resize(); // Call resize method to recalculate dimensions
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const subheaders = document.querySelectorAll('.subheader'); // Select all .subheader elements
+
+    subheaders.forEach(subheader => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    subheader.classList.add('in-view'); // Add class when in view
+                } else {
+                    subheader.classList.remove('in-view'); // Remove class when out of view
+                }
+            });
+        }, {
+            threshold: 0.5, // Trigger when 50% of the element is visible
+        });
+
+        observer.observe(subheader); // Observe each .subheader
+    });
+});
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const steps = document.querySelectorAll('.step');
     const options = {
