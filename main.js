@@ -1,12 +1,3 @@
-const images = [
-    'images1.jpg', // Change these to your actual image paths
-    'images2.jpg',
-    'images3.jpg',
-    'images1.jpg', // Change these to your actual image paths
-    'images2.jpg',
-    'images3.jpg',
-];
-
 const dynamicImage = document.getElementById('dynamic-image');
 const steps = document.querySelectorAll('.step');
 
@@ -185,19 +176,16 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(document.querySelector('.content')); // Observe the content section
 });
 
-document.addEventListener("scroll", function () {
-    const container = document.querySelector(".image-gradation");
-    const topImage = document.querySelector(".top-image");
-    const bottomImage = document.querySelector(".bottom-image");
 
-    const containerTop = container.offsetTop;
-    const containerHeight = container.offsetHeight;
-    const scrollPosition = window.scrollY;
 
-    // Normalize scroll progress within this container only
-    let scrollPercent = (scrollPosition - containerTop) / containerHeight;
-    scrollPercent = Math.max(0, Math.min(1, scrollPercent)); // Clamp between 0 and 1
 
-    topImage.style.opacity = 1 - scrollPercent;
-    bottomImage.style.opacity = scrollPercent;
+document.querySelectorAll('.overlay-image').forEach(image => {
+    image.addEventListener('click', function() {
+        this.classList.add('rotate');
+
+        // Remove the class after animation ends, so it can be applied again
+        setTimeout(() => {
+            this.classList.remove('rotate');
+        }, 1000); // 1s = duration of animation
+    });
 });
