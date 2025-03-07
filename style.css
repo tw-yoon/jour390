@@ -99,27 +99,10 @@ html {
     to { transform: translateY(0); opacity: 1; }
 }
 
-@media (max-width: 768px) {
-    .rectangle {
-        height: 25vh;
-    }
-
-    .two-track-polaroid {
-        flex-direction: column; /* Stack items in a column */
-        align-items: center; /* Center align items */
-    }
-
-    .image-polaroid {
-        width: 100%; /* Make each item take full width */
-        align-items: center; /* Center text in the text track */
-    }
+.extra-space {
+    height: 10%;
 }
 
-@media (max-width: 480px) {
-    .rectangle {
-        height: 20vh;
-    }
-}
 
 .content {
     width: 100vw;
@@ -172,16 +155,7 @@ html {
 }
 
 .step {
-    opacity: 0.5;
-    /* Default state */
-    transition: opacity 0.3s ease;
-    /* Smooth transition */
-    margin-bottom: 10%;
-}
-
-.step.is-active {
-    opacity: 1;
-    /* Active state */
+    margin-bottom: 20%;
 }
 
 .step p {
@@ -189,86 +163,26 @@ html {
 }
 
 .step:last-child {
-    margin-bottom: 0;
-    /* No margin for the last step */
+    margin-bottom: 15%;
 }
 
 
-.two-track,
-.two-track-polaroid,
-.two-track-hobby {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    width: 100%;
-    max-width: 1080px;
-}
-
-.text-track {
+.text-track-intro {
     flex: 1;
-    width: 50%;
-    padding: 20px;
+    width: 50%;    
 }
 
-.image-track {
-    position: sticky;
-    top: 40%;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.image-polaroid {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-track img {
-    max-width: 100%;
-    /* Responsive image */
-    height: auto;
-
+@media (max-width: 768px) {
+    .text-track-intro {
+        flex: 1;
+        width: 80%;    
+    }
 }
 
 
-.polaroid-container {
-    width: 210px;
-    height: 252px;
-    border: 2px solid whitesmoke;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: whitesmoke;
-    transition: transform 0.3s;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    user-select: none;
-}
 
-.polaroid-container p {
-    font-family: 'Reenie Beanie', cursive;
-    font-size: 2rem;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
 
-.image {
-    width: 186px; /* Full width of the container but maintain aspect ratio */
-    height: 186px; /* Prevent overflow in height */
-    object-fit: contain;
 
-}
-
-.extra-space {
-    height: 150px;
-}
 
 .plate-container {
     display: flex;
@@ -330,51 +244,137 @@ html {
     animation: rotate360 1s ease-in-out;
 }
 
-.image-gradation {
+
+
+
+
+
+
+
+.two-track,
+.two-track-hobby {
+    display: flex;
+    align-items: flex-start;
     position: relative;
-    width: 100%; /* Adjust as needed */
-    height: 500px; /* Define height */
+    width: 100%;
+    max-width: 1080px;
+}
+
+.text-track {
+    flex: 1;
+    width: 50%;
+    background-color: #00B783;
+    
+}
+
+.image-track {
+    position: sticky;
+    top: 40%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Prevents unwanted overflow */
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.image-gradation img {
-    position: absolute; /* Ensures images overlap */
-    top: 0;
-    left: 0;
+.image-track img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+
+
+
+
+
+
+.two-track-polaroid {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 1080px;
+}
+
+.image-polaroid {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+.polaroid-container {
+    width: 210px;
+    height: 252px;
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    transition: transform 0.3s;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     user-select: none;
 }
 
-@keyframes fadeOscillate {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+.polaroid-container p {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
-@keyframes fadeOscillateReverse {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+.image {
+    width: 186px;
+    height: 186px;
+    object-fit: contain;
 }
 
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+
+
+
+
+
+@media (max-width: 768px) {
+    .rectangle {
+        height: 25vh;
+    }
+
+    .two-track-polaroid {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .image-polaroid, .text-track {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .image-polaroid {
+        margin: 0 auto;
+    }
+
+    .text-track {
+        margin: 8px;
+    }
+
 }
 
-.top-image {
-    animation: fadeOscillate 10s infinite ease-in-out, rotate 60s linear infinite;
-}
 
-.bottom-image {
-    animation: fadeOscillateReverse 10s infinite ease-in-out, rotate 60s linear infinite;
-}
-
-.extra-space {
-    height: 10vh;
+@media (max-width: 480px) {
+    .rectangle {
+        height: 20vh;
+    }
 }
