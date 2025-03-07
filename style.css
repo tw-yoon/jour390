@@ -50,7 +50,9 @@ html {
     z-index: 1;
 }
 
-.title, .subtitle, .byline {
+.title,
+.subtitle,
+.byline {
     position: relative;
     z-index: 2;
     max-width: 66.66%;
@@ -61,7 +63,7 @@ html {
     font-family: 'Londrina Shadow', sans-serif;
     font-weight: 900;
     font-size: clamp(3rem, 10vw, 6rem);
-    color:white;
+    color: white;
     margin: 0;
     animation: fadeIn 2s ease-in-out;
 }
@@ -77,7 +79,8 @@ html {
     align-items: flex-end;
 }
 
-.subtitle-line1, .subtitle-line2 {
+.subtitle-line1,
+.subtitle-line2 {
     display: block;
 }
 
@@ -90,17 +93,29 @@ html {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .extra-space {
-    height: 10%;
+    height: 10vh;
 }
 
 
@@ -120,15 +135,12 @@ html {
     font-weight: 600;
     color: #303030;
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 0px;
-    padding: 20px;
-    position: relative;
+    padding-bottom: 20px;
     animation: fadeIn 1.5s ease-in-out;
     width: 100%;
     overflow: visible;
-    background-color: white;
-    border-radius: 10px;
+    position: relative;
+    top: 0;
 }
 
 .subheader::after {
@@ -150,8 +162,15 @@ html {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .step {
@@ -159,7 +178,7 @@ html {
 }
 
 .step p {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .step:last-child {
@@ -169,13 +188,13 @@ html {
 
 .text-track-intro {
     flex: 1;
-    width: 50%;    
+    width: 50%;
 }
 
 @media (max-width: 768px) {
     .text-track-intro {
         flex: 1;
-        width: 80%;    
+        width: 80%;
     }
 }
 
@@ -187,54 +206,71 @@ html {
 .plate-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center circles horizontally */
-    align-items: center; /* Center circles vertically */
+    justify-content: center;
+    /* Center circles horizontally */
+    align-items: center;
+    /* Center circles vertically */
     width: 100vw;
     max-width: 1080px;
-    position: relative;/* Position relative for absolute children */
+    position: relative;
+    /* Position relative for absolute children */
 }
 
 .image-overlay {
-    position: relative; /* For positioning text on top of the image */
-    width: 500px; /* Set the width for the images */
-    height: 500px; /* Set the height for the images */
+    position: relative;
+    /* For positioning text on top of the image */
+    width: 500px;
+    /* Set the width for the images */
+    height: 500px;
+    /* Set the height for the images */
 }
 
 .overlay-image {
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 4px; /* Optional: Add rounded corners */
+    width: 100%;
+    /* Make the image fill the container */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 4px;
+    /* Optional: Add rounded corners */
 }
 
 .overlay-text {
-    position: absolute; /* Position the text over the image */
-    top: 50%; /* Center text vertically */
-    left: 50%; /* Center text horizontally */
-    transform: translate(-50%, -50%); /* Adjust to truly center the text */
-    color: white; /* Text color */
-    font-size: 1.1rem; /* Adjust font size as needed */
-    text-align: center; /* Center the text */
+    position: absolute;
+    /* Position the text over the image */
+    top: 50%;
+    /* Center text vertically */
+    left: 50%;
+    /* Center text horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to truly center the text */
+    color: white;
+    /* Text color */
+    font-size: 1rem;
+    /* Adjust font size as needed */
+    text-align: left;
+    /* Center the text */
 }
 
 .plate1 {
     left: -15%;
-    transform: rotate(10deg);
+    transform: rotate(5deg);
 }
 
 .plate2 {
     left: 15%;
-    transform: rotate(-10deg);
+    transform: rotate(-5deg);
 }
 
 .plate3 {
     left: -15%;
-    transform: rotate(10deg);
+    transform: rotate(5deg);
 }
 
 @keyframes rotate360 {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -243,6 +279,70 @@ html {
 .rotate {
     animation: rotate360 1s ease-in-out;
 }
+
+@media (max-width: 768px) {
+    .plate1 {
+        left: 0%;
+        transform: rotate(5deg);
+    }
+    
+    .plate2 {
+        left: 0%;
+        transform: rotate(-5deg);
+    }
+    
+    .plate3 {
+        left: 0%;
+        transform: rotate(5deg);
+    }
+}
+
+
+
+
+
+
+
+.text-tact {
+    flex: 1;
+    width: 50%;
+    position: relative;
+    z-index: 2;
+    /* Ensures text is above */
+    padding: 20px;
+}
+
+.image-tact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateY(20px);
+    /* Initial slight downward shift */
+    z-index: 1;
+    /* Ensures it's behind */
+}
+
+.image-tact img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-tact.visible {
+    opacity: 1;
+    transform: translateY(0);
+    /* Moves back to normal position */
+}
+
+
+
 
 
 
@@ -263,8 +363,7 @@ html {
 .text-track {
     flex: 1;
     width: 50%;
-    background-color: #00B783;
-    
+    padding-right: 10%;
 }
 
 .image-track {
@@ -289,7 +388,6 @@ html {
 
 
 
-
 .two-track-polaroid {
     display: flex;
     align-items: flex-start;
@@ -303,7 +401,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
 }
 
 .polaroid-container {
@@ -352,7 +449,7 @@ html {
         width: 100%;
     }
 
-    .image-polaroid, .text-track {
+    .image-polaroid {
         width: 100%;
         max-width: 600px;
         display: flex;
@@ -367,9 +464,10 @@ html {
     }
 
     .text-track {
-        margin: 8px;
+        flex: 1;
+        width: 80%;
+        padding-right: 0;
     }
-
 }
 
 

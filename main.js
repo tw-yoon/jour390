@@ -189,3 +189,24 @@ document.querySelectorAll('.overlay-image').forEach(image => {
         }, 1000); // 1s = duration of animation
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const imageTrack = document.querySelector(".image-tact");
+    const section = document.querySelector(".content"); 
+
+    function checkScroll() {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        // When section reaches half the viewport height, trigger the effect
+        if (sectionTop < windowHeight / 2) {
+            imageTrack.classList.add("visible");
+        }
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Run once in case it's already in view
+});
+
+
