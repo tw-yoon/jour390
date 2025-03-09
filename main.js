@@ -1,46 +1,62 @@
 const dynamicImage = document.getElementById('dynamic-image');
 const steps = document.querySelectorAll('.step');
 
+
 const scroller = scrollama();
+
 
 scroller
     .setup({
-        step: '.step', 
-        offset: 0.5, 
-        debug: false, 
+        step: '.step',
+        offset: 0.5,
+        debug: false,
     })
     .onStepEnter(({ element, index }) => {
-        element.classList.add('is-active'); 
+        element.classList.add('is-active');
     })
     .onStepExit(({ element, index }) => {
-        element.classList.remove('is-active'); 
+        element.classList.remove('is-active');
     });
 
+
 window.addEventListener('resize', () => {
-    scroller.resize(); 
+    scroller.resize();
 });
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    const subheaders = document.querySelectorAll('.subheader'); 
+    const subheaders = document.querySelectorAll('.subheader');
+
 
     subheaders.forEach(subheader => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    subheader.classList.add('in-view'); 
+                    subheader.classList.add('in-view');
                 } else {
-                    subheader.classList.remove('in-view'); 
+                    subheader.classList.remove('in-view');
                 }
             });
         }, {
-            threshold: 0.5, 
+            threshold: 0.5,
         });
 
-        observer.observe(subheader); 
+
+        observer.observe(subheader);
     });
 });
+
+
+
+
+
+
+
+
 
 
 
@@ -52,10 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const steps = document.querySelectorAll('.step');
     const options = {
-        root: null, 
+        root: null,
         rootMargin: '0px',
-        threshold: 0.5 
+        threshold: 0.5
     };
+
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -67,18 +84,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, options);
 
+
     steps.forEach(step => {
         observer.observe(step);
     });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.querySelector("#potteryCostTable tbody");
+
 
     const potteryCosts = [
         { type: "Single Class", cost: 200 },
         { type: "6-Week Class", cost: 350 }
     ];
+
 
     potteryCosts.forEach(item => {
         let row = document.createElement("tr");
@@ -87,9 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const steps = document.querySelectorAll(".step");
     const imageTrack = document.querySelector(".image-track");
+
 
     function updateCircleVisibility(stepIndex) {
         if (stepIndex === 1) {
@@ -101,8 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+
     function handleScroll() {
         let currentStepIndex = 0;
+
 
         steps.forEach((step, index) => {
             const rect = step.getBoundingClientRect();
@@ -111,8 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+
         updateCircleVisibility(currentStepIndex);
     }
+
 
     window.addEventListener("scroll", handleScroll);
 });
@@ -124,29 +151,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+
+
+
+
 const polaroidContainers = document.querySelectorAll('.polaroid-container');
+
 
 polaroidContainers.forEach(container => {
     container.addEventListener('mouseenter', () => {
         const randomDegree = Math.random() < 0.5
-            ? Math.floor(Math.random() * 6) - 10 
-            : Math.floor(Math.random() * 6) + 5; 
+            ? Math.floor(Math.random() * 6) - 10
+            : Math.floor(Math.random() * 6) + 5;
+
 
         container.style.transform = `rotate(${randomDegree}deg)`;
-        container.style.zIndex = '9'; 
+        container.style.zIndex = '9';
     });
 
+
     container.addEventListener('mouseleave', () => {
-        container.style.transform = 'rotate(0deg)'; 
-        container.style.zIndex = ''; 
+        container.style.transform = 'rotate(0deg)';
+        container.style.zIndex = '';
     });
 });
+
+
+
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
     const circles = document.querySelectorAll('.circle');
     let circleIndex = 0;
+
 
     function showCircle() {
         if (circleIndex < circles.length) {
@@ -156,15 +198,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
             showCircle();
-            observer.disconnect(); 
+            observer.disconnect();
         }
     });
 
-    observer.observe(document.querySelector('.content')); // Observe the content section
+
+    observer.observe(document.querySelector('.content'));
 });
+
+
+
+
 
 
 
@@ -173,30 +221,32 @@ document.querySelectorAll('.overlay-image').forEach(image => {
     image.addEventListener('click', function() {
         this.classList.add('rotate');
 
-        // Remove the class after animation ends, so it can be applied again
+
         setTimeout(() => {
             this.classList.remove('rotate');
-        }, 1000); // 1s = duration of animation
+        }, 1000);
     });
 });
 
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const imageTrack = document.querySelector(".image-tact");
-    const section = document.querySelector(".content"); 
+    const section = document.querySelector(".content");
+
 
     function checkScroll() {
         const sectionTop = section.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        // When section reaches half the viewport height, trigger the effect
+
         if (sectionTop < windowHeight / 2) {
             imageTrack.classList.add("visible");
         }
     }
 
+
     window.addEventListener("scroll", checkScroll);
-    checkScroll(); // Run once in case it's already in view
+    checkScroll();
 });
-
-

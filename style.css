@@ -21,6 +21,7 @@ html {
     max-width: 100%;
 }
 
+
 .landing-page {
     position: relative;
     width: 100vw;
@@ -38,6 +39,7 @@ html {
     box-sizing: border-box;
 }
 
+
 .landing-page::before {
     content: "";
     position: absolute;
@@ -49,6 +51,7 @@ html {
     z-index: 1;
 }
 
+
 .title,
 .subtitle,
 .byline {
@@ -58,6 +61,7 @@ html {
     margin-left: auto;
 }
 
+
 .title {
     font-family: "Londrina Solid", sans-serif;
     font-weight: 600;
@@ -66,6 +70,7 @@ html {
     margin: 0;
     animation: fadeIn 2s ease-in-out;
 }
+
 
 .subtitle {
     font-family: 'Georgia', serif;
@@ -78,10 +83,12 @@ html {
     align-items: flex-end;
 }
 
+
 .subtitle-line1,
 .subtitle-line2 {
     display: block;
 }
+
 
 .byline {
     font-family: 'Reenie Beanie', cursive;
@@ -94,15 +101,18 @@ html {
     margin: 10px 0;
 }
 
+
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
 
+
     to {
         opacity: 1;
     }
 }
+
 
 @keyframes slideUp {
     from {
@@ -110,15 +120,19 @@ html {
         opacity: 0;
     }
 
+
     to {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
+
 .extra-space {
     height: 10vh;
 }
+
+
 
 
 .content {
@@ -130,6 +144,7 @@ html {
     flex-direction: column;
     align-items: center;
 }
+
 
 .subheader {
     font-family: "Londrina Solid", sans-serif;
@@ -144,6 +159,7 @@ html {
     position: relative;
     top: 0;
 }
+
 
 .subheader::after {
     content: "";
@@ -162,9 +178,13 @@ html {
 
 
 
+
+
+
 .subheader.in-view::after {
     transform: scaleX(1);
 }
+
 
 @keyframes fadeIn {
     from {
@@ -172,29 +192,36 @@ html {
         transform: translateY(-20px);
     }
 
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+
 .step {
     margin-bottom: 20%;
 }
 
+
 .step p {
     font-size: 1rem;
 }
+
 
 .step:last-child {
     margin-bottom: 15%;
 }
 
 
+
+
 .text-track-intro {
     flex: 1;
     width: 50%;
 }
+
 
 @media (max-width: 768px) {
     .text-track-intro {
@@ -208,94 +235,94 @@ html {
 
 
 
+
+
+
+
+
+
 .plate-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Center circles horizontally */
     align-items: center;
-    /* Center circles vertically */
     width: 100vw;
     max-width: 1080px;
     position: relative;
-    /* Position relative for absolute children */
 }
+
 
 .image-overlay {
     position: relative;
-    /* For positioning text on top of the image */
     width: 500px;
-    /* Set the width for the images */
     height: 500px;
-    /* Set the height for the images */
 }
+
 
 .overlay-image {
     width: 100%;
-    /* Make the image fill the container */
     height: auto;
-    /* Maintain aspect ratio */
     border-radius: 4px;
-    /* Optional: Add rounded corners */
 }
+
 
 .overlay-text {
     position: absolute;
-    /* Position the text over the image */
     top: 50%;
-    /* Center text vertically */
     left: 50%;
-    /* Center text horizontally */
     transform: translate(-50%, -50%);
-    /* Adjust to truly center the text */
     color: white;
-    /* Text color */
     font-size: 1rem;
-    /* Adjust font size as needed */
     text-align: left;
-    /* Center the text */
 }
+
 
 .plate1 {
     left: -15%;
     transform: rotate(5deg);
 }
 
+
 .plate2 {
     left: 15%;
     transform: rotate(-5deg);
 }
+
 
 .plate3 {
     left: -15%;
     transform: rotate(5deg);
 }
 
+
 @keyframes rotate360 {
     from {
         transform: rotate(0deg);
     }
+
 
     to {
         transform: rotate(360deg);
     }
 }
 
+
 .rotate {
     animation: rotate360 1s ease-in-out;
 }
+
 
 @media (max-width: 768px) {
     .plate1 {
         left: 0%;
         transform: rotate(5deg);
     }
-    
+   
     .plate2 {
         left: 0%;
         transform: rotate(-5deg);
     }
-    
+   
     .plate3 {
         left: 0%;
         transform: rotate(5deg);
@@ -305,6 +332,60 @@ html {
 
 
 
+.content2 {
+    position: relative;
+    width: 100vw;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url("./IMG_1625.JPG");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+
+.content2 .text-tact {
+    width: 80%;
+    max-width: 800px;
+    color: white;
+    text-align: left;
+    margin: 20px 0;
+    padding: 0;
+}
+
+
+.content2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.238);
+    z-index: 1;
+}
+
+
+.content2 .subheader {
+    color: white;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+
+.content2 .step p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
 
 
 
@@ -313,9 +394,9 @@ html {
     width: 50%;
     position: relative;
     z-index: 2;
-    /* Ensures text is above */
     padding: 20px;
 }
+
 
 .image-tact {
     position: absolute;
@@ -327,33 +408,22 @@ html {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    /* Initially hidden */
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
     transform: translateY(20px);
-    /* Initial slight downward shift */
     z-index: 1;
-    /* Ensures it's behind */
 }
+
 
 .image-tact img {
     max-width: 100%;
     height: auto;
 }
 
+
 .image-tact.visible {
     opacity: 1;
     transform: translateY(0);
-    /* Moves back to normal position */
 }
-
-
-
-
-
-
-
-
-
 
 
 .two-track,
@@ -365,11 +435,13 @@ html {
     max-width: 1080px;
 }
 
+
 .text-track {
     flex: 1;
     width: 50%;
     padding-right: 10%;
 }
+
 
 .image-track {
     position: sticky;
@@ -382,11 +454,19 @@ html {
     overflow: hidden;
 }
 
+
 .image-track img {
     max-width: 100%;
     height: auto;
 
+
 }
+
+
+
+
+
+
 
 
 
@@ -401,12 +481,14 @@ html {
     max-width: 1080px;
 }
 
+
 .image-polaroid {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 .polaroid-container {
     width: 210px;
@@ -424,12 +506,14 @@ html {
     user-select: none;
 }
 
+
 .polaroid-container p {
     font-family: 'Reenie Beanie', cursive;
     font-size: 2rem;
     margin-top: 10px;
     margin-bottom: 0;
 }
+
 
 .image {
     width: 186px;
@@ -442,10 +526,17 @@ html {
 
 
 
+
+
+
+
+
+
 @media (max-width: 768px) {
     .rectangle {
         height: 25vh;
     }
+
 
     .two-track-polaroid {
         flex-direction: column;
@@ -453,6 +544,7 @@ html {
         justify-content: center;
         width: 100%;
     }
+
 
     .image-polaroid {
         width: 100%;
@@ -464,9 +556,11 @@ html {
         text-align: left;
     }
 
+
     .image-polaroid {
         margin: 0 auto;
     }
+
 
     .text-track {
         flex: 1;
@@ -474,6 +568,8 @@ html {
         padding-right: 0;
     }
 }
+
+
 
 
 @media (max-width: 480px) {
