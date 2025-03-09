@@ -1,50 +1,44 @@
 const dynamicImage = document.getElementById('dynamic-image');
 const steps = document.querySelectorAll('.step');
 
-// Initialize Scrollama
 const scroller = scrollama();
 
-// Setup scroller with options
 scroller
     .setup({
-        step: '.step', // the class of the elements to track
-        offset: 0.5, // how far into the viewport to trigger (0.5 means halfway down)
-        debug: false, // set to true for debugging messages
+        step: '.step', 
+        offset: 0.5, 
+        debug: false, 
     })
     .onStepEnter(({ element, index }) => {
-        // Actions when entering a step
-        element.classList.add('is-active'); // Add an active class for styling
-        // You can add other actions here, like updating a sidebar or changing content
+        element.classList.add('is-active'); 
     })
     .onStepExit(({ element, index }) => {
-        // Actions when exiting a step
-        element.classList.remove('is-active'); // Remove active class
+        element.classList.remove('is-active'); 
     });
 
-// Optional: handle window resize events
 window.addEventListener('resize', () => {
-    scroller.resize(); // Call resize method to recalculate dimensions
+    scroller.resize(); 
 });
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const subheaders = document.querySelectorAll('.subheader'); // Select all .subheader elements
+    const subheaders = document.querySelectorAll('.subheader'); 
 
     subheaders.forEach(subheader => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    subheader.classList.add('in-view'); // Add class when in view
+                    subheader.classList.add('in-view'); 
                 } else {
-                    subheader.classList.remove('in-view'); // Remove class when out of view
+                    subheader.classList.remove('in-view'); 
                 }
             });
         }, {
-            threshold: 0.5, // Trigger when 50% of the element is visible
+            threshold: 0.5, 
         });
 
-        observer.observe(subheader); // Observe each .subheader
+        observer.observe(subheader); 
     });
 });
 
@@ -58,24 +52,21 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const steps = document.querySelectorAll('.step');
     const options = {
-        root: null, // Use the viewport as the root
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.5 // Trigger when 50% of the step is in view
+        threshold: 0.5 
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add the active class to the current step
                 entry.target.classList.add('is-active');
             } else {
-                // Remove the active class when it's not visible
                 entry.target.classList.remove('is-active');
             }
         });
     }, options);
 
-    // Observe each step
     steps.forEach(step => {
         observer.observe(step);
     });
@@ -138,16 +129,16 @@ const polaroidContainers = document.querySelectorAll('.polaroid-container');
 polaroidContainers.forEach(container => {
     container.addEventListener('mouseenter', () => {
         const randomDegree = Math.random() < 0.5
-            ? Math.floor(Math.random() * 6) - 10 // Random value between -10 and -5
-            : Math.floor(Math.random() * 6) + 5; // Random value between 5 and 10
+            ? Math.floor(Math.random() * 6) - 10 
+            : Math.floor(Math.random() * 6) + 5; 
 
         container.style.transform = `rotate(${randomDegree}deg)`;
-        container.style.zIndex = '9'; // Set z-index on hover
+        container.style.zIndex = '9'; 
     });
 
     container.addEventListener('mouseleave', () => {
-        container.style.transform = 'rotate(0deg)'; // Reset rotation on mouse leave
-        container.style.zIndex = ''; // Reset z-index on mouse leave
+        container.style.transform = 'rotate(0deg)'; 
+        container.style.zIndex = ''; 
     });
 });
 
@@ -159,17 +150,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showCircle() {
         if (circleIndex < circles.length) {
-            circles[circleIndex].classList.add('visible'); // Add class to make it visible
+            circles[circleIndex].classList.add('visible');
             circleIndex++;
-            setTimeout(showCircle, 500); // Delay for the next circle
+            setTimeout(showCircle, 500);
         }
     }
 
-    // Start showing circles when the section is in view
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-            showCircle(); // Start showing circles when the section comes into view
-            observer.disconnect(); // Stop observing after circles start appearing
+            showCircle();
+            observer.disconnect(); 
         }
     });
 
