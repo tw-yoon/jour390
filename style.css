@@ -386,8 +386,10 @@ html {
 
 @media (max-width: 768px) {
     .content2 {
-        background-attachment: scroll; /* Disable fixed background */
-        background-size: contain; /* Adjust image to fit */
+        background-attachment: scroll;
+        background-size: cover;
+        background-repeat: no-repeat; 
+        background-position: center;
     }
 }
 
