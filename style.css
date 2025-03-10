@@ -16,10 +16,10 @@ html {
     line-height: 1.5;
     color: #303030;
     background-color: beige;
-    cursor: auto;
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    cursor: url('/hand-pointer.cur'), auto;
 }
 
 
@@ -266,11 +266,11 @@ html {
     position: relative;
     width: 500px;
     height: 500px;
-    cursor: grab;
+    cursor: url('/hand-default.cur'), auto;
 }
 
 .image-overlay:active {
-    cursor: grabbing;
+    cursor: url('/hand-default.cur'), auto;
 }
 
 .overlay-image {
@@ -559,9 +559,6 @@ html {
 
 
 @media (max-width: 768px) {
-    .rectangle {
-        height: 25vh;
-    }
 
 
     .two-track-polaroid {
@@ -592,14 +589,5 @@ html {
         flex: 1;
         width: 80%;
         padding-right: 0;
-    }
-}
-
-
-
-
-@media (max-width: 480px) {
-    .rectangle {
-        height: 20vh;
     }
 }
