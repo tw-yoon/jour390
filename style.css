@@ -384,6 +384,13 @@ html {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .content2 {
+        background-attachment: scroll; /* Disable fixed background */
+        background-size: contain; /* Adjust image to fit */
+    }
+}
+
 
 .content2 .text-tact {
     width: 80%;
