@@ -2,15 +2,40 @@
 /* cursor */
 
 document.addEventListener("mousedown", function () {
-    document.body.style.cursor = "url('/hand-default.cur'), auto";
+    document.body.style.cursor = "url('/hand-default.png'), auto";
 });
 
 document.addEventListener("mouseup", function () {
-    document.body.style.cursor = "url('/hand-pointer.cur'), auto";
+    document.body.style.cursor = "url('/hand-pointer.png'), auto";
 });
 
 
 
+
+
+/* green bar */
+
+document.addEventListener('DOMContentLoaded', function () {
+    const subheaders = document.querySelectorAll('.subheader');
+
+
+    subheaders.forEach(subheader => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    subheader.classList.add('in-view');
+                } else {
+                    subheader.classList.remove('in-view');
+                }
+            });
+        }, {
+            threshold: 0.5,
+        });
+
+
+        observer.observe(subheader);
+    });
+});
 
 
 
@@ -33,13 +58,13 @@ polaroidContainers.forEach(container => {
 
         container.style.transform = `rotate(${randomDegree}deg)`;
         container.style.zIndex = '9';
-        container.style.cursor = "url('/hand-default.cur'), auto";
+        container.style.cursor = "url('/hand-default.png'), auto";
     });
 
     container.addEventListener('mouseleave', () => {
         container.style.transform = 'rotate(0deg)';
         container.style.zIndex = '';
-        container.style.cursor = "url('/hand-pointer.cur'), auto";
+        container.style.cursor = "url('/hand-pointer.png'), auto";
     });
 });
 

@@ -17,9 +17,8 @@ html {
     color: #303030;
     background-color: beige;
     overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
-    cursor: url('/hand-pointer.cur'), auto;
+    width: 100vw;
+    cursor: url('/hand-default.png'), auto;
 }
 
 
@@ -158,7 +157,7 @@ html {
 
 .subheader {
     font-family: "Londrina Solid", sans-serif;
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2rem, 10vw, 4rem);
     font-weight: 600;
     color: #303030;
     text-align: center;
@@ -266,11 +265,11 @@ html {
     position: relative;
     width: 500px;
     height: 500px;
-    cursor: url('/hand-default.cur'), auto;
+    cursor: url('/hand-default.png'), auto;
 }
 
 .image-overlay:active {
-    cursor: url('/hand-default.cur'), auto;
+    cursor: url('/hand-default.png'), auto;
 }
 
 .overlay-image {
