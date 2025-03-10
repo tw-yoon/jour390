@@ -177,12 +177,16 @@ html {
     left: 50%;
     width: 100vw;
     height: 6px;
-    background-color: #00B783;
+    background-color: #303030;
     border-radius: 2px;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.5s ease-in-out;
     margin-left: -50vw;
+}
+
+.content2 .subheader::after {
+    background-color: white;
 }
 
 
