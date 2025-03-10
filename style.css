@@ -283,15 +283,34 @@ html {
 }
 
 
-.overlay-text {
+.overlay-text,
+.overlay-text-2 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
     font-size: 1rem;
     text-align: left;
+    text-shadow: 
+    -1px -1px 2px black,  
+     1px -1px 2px black,  
+    -1px  1px 2px black,  
+     1px  1px 2px black;
 }
+
+.overlay-text {
+
+    transform: translate(-50%, -53%);
+
+}
+
+.overlay-text-2 {
+
+    transform: translate(-50%, -55%);
+
+}
+
+
 
 
 .plate1 {
